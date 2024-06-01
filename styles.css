@@ -1,0 +1,83 @@
+*, *::before, *::after
+{
+    box-sizing: border-box;
+    font-family: 'Audiowide', sans-serif;
+}
+
+:root
+{
+    --hue: 200;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 25%);
+}
+
+body
+{
+    margin: 0em;
+    overflow: hidden;
+    background-color: var(--background-color);
+}
+
+.paddle
+{
+    width: 1vh;
+    height: 10vh;
+    border-top-left-radius: 4em;
+    border-top-right-radius: 4em;
+    border-bottom-left-radius: 4em;
+    border-bottom-right-radius: 4em;
+    --position: 50;
+    top: calc(var(--position)*1vh);
+    transform: translateY(-50%);
+    position: absolute;
+    background-color: var(--foreground-color);
+}
+
+.paddle.left
+{
+    left: 1vw;
+}
+
+.paddle.right
+{
+    right: 1vw;
+}
+
+.ball
+{
+    width: 2.5vh;
+    height: 2.5vh;
+    --x: 50;
+    --y: 50;
+    left: calc(var(--x)*1vw);
+    top: calc(var(--y)*1vh);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--foreground-color);
+}
+
+.score
+{
+    display: flex;
+    justify-content: center;
+    color: var(--foreground-color);
+    font-size: 8vh;
+    font-weight: bold;
+}
+
+.score > *
+{
+    margin: 1vh 0vh;
+    padding: 0vh 2vh;
+    flex-grow: 1;
+    flex-basis: 0;
+    opacity: 0.5;
+}
+
+.score > :first-child
+{
+    text-align: right;
+    border-right: 0.5vh solid var(--foreground-color);
+}
